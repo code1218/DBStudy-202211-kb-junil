@@ -10,11 +10,9 @@ FROM
 	order_mst as om
 	LEFT OUTER JOIN order_dtl as od ON(od.order_id = om.id)
 	LEFT OUTER JOIN product_mst as pm ON(pm.id = od.proder_id)
-	LEFT OUTER JOIN user_mst as um ON(om.user_id = um.id)
+	LEFT OUTER JOIN user_mst as um ON(um.id = om.user_id)
 ORDER BY 
 	od.id;
-	
-	
 	
 SELECT
 	nm.title,
@@ -26,6 +24,28 @@ FROM
 	LEFT OUTER JOIN study_writer_mst wm ON(wm.id = nm.writer_id)
 	LEFT OUTER JOIN study_notice_img ni ON(ni.notice_id = nm.id);
 	
-	
+
+SELECT
+	*
+FROM
+	user_mst um
+	LEFT outer JOIN user_dtl ud ON (ud.id = um.id);
+
+
+SELECT
+	*
+FROM
+	order_mst om
+	LEFT OUTER JOIN order_dtl od ON(od.order_id = om.id)
+WHERE
+	om.user_id = 1;
+
+
+
+
+
+
+
+
 	
 	
